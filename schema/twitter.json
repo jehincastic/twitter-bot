@@ -1,0 +1,48 @@
+[{
+  "title": "callBackQueryString",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["code", "state"]
+}, {
+  "title": "callBackResponse",
+  "commonResponse": true,
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["username", "name"]
+}, {
+  "title": "getUrlResponse",
+  "commonResponse": true,
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "codeVerifier": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["url", "state", "codeVerifier"]
+}]
