@@ -3,10 +3,10 @@ import { FastifyPluginAsync } from "fastify";
 import { makeSchemaObject } from "../../utils";
 import {
   CallBackQueryString,
-  callBackQueryStringSchema,
+  CallBackQueryStringSchema,
   CallBackResponse,
-  callBackResponseSchema,
-  commonErrorResponseSchema,
+  CallBackResponseSchema,
+  CommonErrorResponseSchema,
   CommonRequest,
 } from "../../types";
 import { callBackController } from "../../controllers/twitter";
@@ -18,12 +18,12 @@ const Routes: FastifyPluginAsync = async (fastify) => {
       schema: makeSchemaObject({
         response: [{
           status: 200,
-          data: callBackResponseSchema,
+          data: CallBackResponseSchema,
         }, {
           status: [404, 500],
-          data: commonErrorResponseSchema,
+          data: CommonErrorResponseSchema,
         }],
-        query: callBackQueryStringSchema,
+        query: CallBackQueryStringSchema,
       }),
     },
     callBackController,

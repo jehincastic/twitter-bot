@@ -10,7 +10,7 @@ export interface CallBackQueryString {
   state: string;
 }
 
-export const callBackQueryStringSchema: Object = {
+export const CallBackQueryStringSchema: Object = {
   title: "callBackQueryString",
   type: "object",
   properties: {
@@ -37,7 +37,7 @@ export const callBackQueryStringSchema: Object = {
  */
 
 export interface CallBackResponse {
-  status: "SUCCESS" | "FAILED";
+  status: "SUCCESS";
   data: {
     username: string;
     image?: string;
@@ -45,7 +45,7 @@ export interface CallBackResponse {
   };
 }
 
-export const callBackResponseSchema: Object = {
+export const CallBackResponseSchema: Object = {
   title: "callBackResponse",
   type: "object",
   properties: {
@@ -53,7 +53,6 @@ export const callBackResponseSchema: Object = {
       type: "string",
       enum: [
         "SUCCESS",
-        "FAILED",
       ],
     },
     data: {
@@ -92,7 +91,7 @@ export const callBackResponseSchema: Object = {
  */
 
 export interface GetUrlResponse {
-  status: "SUCCESS" | "FAILED";
+  status: "SUCCESS";
   data: {
     url: string;
     state: string;
@@ -100,7 +99,7 @@ export interface GetUrlResponse {
   };
 }
 
-export const getUrlResponseSchema: Object = {
+export const GetUrlResponseSchema: Object = {
   title: "getUrlResponse",
   type: "object",
   properties: {
@@ -108,7 +107,6 @@ export const getUrlResponseSchema: Object = {
       type: "string",
       enum: [
         "SUCCESS",
-        "FAILED",
       ],
     },
     data: {

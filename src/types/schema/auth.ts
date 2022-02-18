@@ -10,7 +10,7 @@ export interface LoginInput {
   password: string;
 }
 
-export const loginInputSchema: Object = {
+export const LoginInputSchema: Object = {
   title: "loginInput",
   type: "object",
   properties: {
@@ -42,7 +42,7 @@ export interface SingUpInput {
   password: string;
 }
 
-export const singUpInputSchema: Object = {
+export const SingUpInputSchema: Object = {
   title: "singUpInput",
   type: "object",
   properties: {
@@ -72,7 +72,7 @@ export const singUpInputSchema: Object = {
  */
 
 export interface LoginResponse {
-  status: "SUCCESS" | "FAILED";
+  status: "SUCCESS";
   data: {
     name: string;
     email: string;
@@ -81,7 +81,7 @@ export interface LoginResponse {
   };
 }
 
-export const loginResponseSchema: Object = {
+export const LoginResponseSchema: Object = {
   title: "loginResponse",
   type: "object",
   properties: {
@@ -89,7 +89,6 @@ export const loginResponseSchema: Object = {
       type: "string",
       enum: [
         "SUCCESS",
-        "FAILED",
       ],
     },
     data: {

@@ -5,8 +5,8 @@ import {
   getUrlController,
 } from "../../controllers/twitter";
 import {
-  getUrlResponseSchema,
-  commonErrorResponseSchema,
+  GetUrlResponseSchema,
+  CommonErrorResponseSchema,
   GetUrlResponse,
   CommonRequest,
 } from "../../types";
@@ -18,10 +18,10 @@ const Routes: FastifyPluginAsync = async (fastify) => {
       schema: makeSchemaObject({
         response: [{
           status: 200,
-          data: getUrlResponseSchema,
+          data: GetUrlResponseSchema,
         }, {
           status: [404, 500],
-          data: commonErrorResponseSchema,
+          data: CommonErrorResponseSchema,
         }],
       }),
     },

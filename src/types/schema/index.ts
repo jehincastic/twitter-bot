@@ -1,4 +1,4 @@
-export const commonErrorResponseSchema: Object = {
+export const CommonErrorResponseSchema: Object = {
   title: "CommonErrorResponse",
   type: "object",
   properties: {

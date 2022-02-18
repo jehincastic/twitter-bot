@@ -3,8 +3,7 @@ const { compile } = require("json-schema-to-typescript");
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-
-const capitialize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+const { capitialize } = require("../utils");
 
 const generateCommonResponse = (resp) => {
   const data = resp;
@@ -68,7 +67,7 @@ const processDirectory = async (dirPath, promArr) => {
 };
 
 const init = async () => {
-  const folderPath = path.join(__dirname, "src", "types", "schema");
+  const folderPath = path.join(process.cwd(), "src", "types", "schema");
   if (fs.existsSync(folderPath)) {
     await fs.rmSync(folderPath, { recursive: true });
   }

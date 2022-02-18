@@ -3,10 +3,10 @@ import { FastifyPluginAsync } from "fastify";
 import { makeSchemaObject } from "../../utils";
 import {
   LoginInput,
-  loginInputSchema,
+  LoginInputSchema,
   LoginResponse,
-  loginResponseSchema,
-  commonErrorResponseSchema,
+  LoginResponseSchema,
+  CommonErrorResponseSchema,
   CommonRequest,
 } from "../../types";
 
@@ -17,12 +17,12 @@ const Routes: FastifyPluginAsync = async (fastify) => {
       schema: makeSchemaObject({
         response: [{
           status: 200,
-          data: loginResponseSchema,
+          data: LoginResponseSchema,
         }, {
           status: [401, 403, 404, 500],
-          data: commonErrorResponseSchema,
+          data: CommonErrorResponseSchema,
         }],
-        body: loginInputSchema,
+        body: LoginInputSchema,
       }),
     },
     (request, reply) => {
