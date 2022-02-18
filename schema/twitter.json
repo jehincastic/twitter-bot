@@ -1,6 +1,7 @@
 [{
   "title": "callBackQueryString",
   "type": "object",
+  "schemaType": "query",
   "properties": {
     "code": {
       "type": "string"
@@ -15,6 +16,7 @@
   "title": "callBackResponse",
   "commonResponse": true,
   "type": "object",
+  "schemaType": "response",
   "properties": {
     "username": {
       "type": "string"
@@ -32,6 +34,7 @@
   "title": "getUrlResponse",
   "commonResponse": true,
   "type": "object",
+  "schemaType": "response",
   "properties": {
     "url": {
       "type": "string"

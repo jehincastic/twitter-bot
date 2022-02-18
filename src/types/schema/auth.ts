@@ -37,7 +37,7 @@ export const LoginInputSchema: Object = {
  */
 
 export interface SingUpInput {
-  name?: string;
+  name: string;
   email: string;
   password: string;
 }
@@ -60,6 +60,7 @@ export const SingUpInputSchema: Object = {
   required: [
     "email",
     "password",
+    "name",
   ],
   id: "SingUpInput",
 };

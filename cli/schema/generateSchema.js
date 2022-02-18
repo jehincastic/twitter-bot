@@ -47,6 +47,7 @@ const processFile = async (filePath) => {
   const fileData = JSON.parse(fs.readFileSync(filePath, "utf8"));
   fileData.forEach((data) => {
     let newData = data;
+    delete newData.schemaType;
     if (data.commonResponse) {
       newData = generateCommonResponse(data);
     }

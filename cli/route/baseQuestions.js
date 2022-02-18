@@ -12,10 +12,10 @@ const baseQuestions = async (types) => {
       result: makeApiUrl,
     }, {
       type: "autocomplete",
-      name: "schemaName",
+      name: "responseType",
       required: true,
       message: "What is the schema name for success response ?",
-      choices: types,
+      choices: types.response,
       limit: 10,
     }, {
       type: "multiselect",
@@ -27,6 +27,7 @@ const baseQuestions = async (types) => {
         { name: "Unauthorized [401]", value: 401 },
         { name: "Forbidden [403]", value: 403 },
         { name: "Not Found [404]", value: 404 },
+        { name: "Conflict [409]", value: 409 },
         { name: "Internal Server Error [500]", value: 500 },
       ],
       result: (value) => value.map((v) => Number(v.match(/\[(\d+)\]/)[1])),

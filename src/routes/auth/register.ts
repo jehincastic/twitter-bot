@@ -2,16 +2,16 @@ import { FastifyPluginAsync } from "fastify";
 
 import { makeSchemaObject } from "../../utils";
 import {
-  LoginInput,
-  LoginInputSchema,
+  CommonRequest,
+  CommonErrorResponseSchema,
   LoginResponse,
   LoginResponseSchema,
-  CommonErrorResponseSchema,
-  CommonRequest,
+  SingUpInput,
+  SingUpInputSchema,
 } from "../../types";
 
 const Routes: FastifyPluginAsync = async (fastify) => {
-  fastify.get<CommonRequest<LoginResponse, LoginInput>>(
+  fastify.post<CommonRequest<LoginResponse, SingUpInput>>(
     "/",
     {
       schema: makeSchemaObject({
@@ -19,24 +19,25 @@ const Routes: FastifyPluginAsync = async (fastify) => {
           status: 200,
           data: LoginResponseSchema,
         }, {
-          status: [401, 403, 404, 500],
+          status: [400, 409, 500],
           data: CommonErrorResponseSchema,
         }],
-        body: LoginInputSchema,
+        body: SingUpInputSchema,
       }),
     },
     (req, res) => {
       const {
         email,
         password,
+        name,
       } = req.body;
       res.send({
         status: "SUCCESS",
         data: {
           email,
-          name: "",
-          id: "",
-          token: password,
+          name,
+          id: password,
+          token: "token",
         },
       });
     },
