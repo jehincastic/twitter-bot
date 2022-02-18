@@ -9,7 +9,7 @@
     "build": "yarn lint && tsc -p tsconfig.json",
     "lint": "eslint src/**/**.ts",
     "clean": "rm -rf dist",
-    "schema": "node generateSchema"
+    "cli": "node cli/index.js"
   },
   "keywords": [],
   "author": "",

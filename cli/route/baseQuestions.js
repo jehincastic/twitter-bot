@@ -2,7 +2,7 @@
 const { prompt } = require("enquirer");
 const { makeApiUrl } = require("../utils");
 
-const baseQuestions = async () => {
+const baseQuestions = async (types) => {
   const questions = [
     {
       type: "input",
@@ -11,10 +11,12 @@ const baseQuestions = async () => {
       message: "What is the name of the route (/api/v1/*) ?",
       result: makeApiUrl,
     }, {
-      type: "input",
+      type: "autocomplete",
       name: "schemaName",
       required: true,
       message: "What is the schema name for success response ?",
+      choices: types,
+      limit: 10,
     }, {
       type: "multiselect",
       name: "errorCode",
